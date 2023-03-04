@@ -1,14 +1,10 @@
-const routeDir = require("../utl/path.route");
+const grabFiles = require("../util/grabFiles");
 const path = require("path");
-const fs = require("fs");
 
 //
 function loadEvents(client) {
     // Grab all the event files from the events directory
-    const eventsPath = path.join(routeDir, "models", "events");
-    const eventFiles = fs
-        .readdirSync(eventsPath)
-        .filter((file) => file.endsWith(".js"));
+    const { dirFiles: eventFiles, dirPath: eventsPath } = grabFiles("events");
     // Grab all events and execute them
     for (const file of eventFiles) {
         const filePath = path.join(eventsPath, file);
@@ -23,5 +19,5 @@ function loadEvents(client) {
     }
 }
 module.exports = {
-    loadEvents,
+    loadEvents
 };

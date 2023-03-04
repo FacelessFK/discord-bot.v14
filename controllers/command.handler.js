@@ -1,16 +1,11 @@
-const routeDir = require("../utl/path.route");
+const grabFiles = require("../util/grabFiles");
 const path = require("path");
-const fs = require("fs");
 const { Routes } = require("discord.js");
 
 function loadCommands(client, rest) {
-    // ------------find path of file------------
     // Grab all the command files from the commands directory
-    const commandsPath = path.join(routeDir, "models", "commands");
-    const commandFiles = fs
-        .readdirSync(commandsPath)
-        .filter((file) => file.endsWith(".js"));
-
+    const { dirFiles: commandFiles, dirPath: commandsPath } =
+        grabFiles("commands");
     // Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
     const commands = [];
     for (const file of commandFiles) {
@@ -61,5 +56,5 @@ function loadCommands(client, rest) {
 }
 
 module.exports = {
-    loadCommands,
+    loadCommands
 };

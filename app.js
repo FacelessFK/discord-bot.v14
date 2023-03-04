@@ -1,15 +1,6 @@
-const fs = require("node:fs");
-const path = require("node:path");
 const { loadCommands } = require("./controllers/command.handler");
 const { loadEvents } = require("./controllers/event.handler");
-const {
-    Client,
-    Collection,
-    GatewayIntentBits,
-    interaction,
-    REST,
-    Routes,
-} = require("discord.js");
+const { Client, Collection, GatewayIntentBits, REST } = require("discord.js");
 require("dotenv").config();
 
 function runBot() {
@@ -28,5 +19,5 @@ function runBot() {
 }
 
 module.exports = {
-    runBot,
+    runBot
 };

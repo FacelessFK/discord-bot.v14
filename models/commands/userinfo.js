@@ -10,7 +10,10 @@ module.exports = {
         await interaction.reply(
             `${interaction.user.username}, who joined on ${
                 interaction.member.joinedAt
-            }.\n${interaction.user.displayAvatarURL()}`
+            }.\n${interaction.user.displayAvatarURL()} \n ${interaction.locale}`
         );
+
+        const message = await interaction.fetchReply(); //fetch = all detail about bot and user who use this command
+        await interaction.followUp(message.interaction.user.username);
     }
 };
