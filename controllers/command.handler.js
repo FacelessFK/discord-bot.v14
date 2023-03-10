@@ -1,4 +1,4 @@
-const grabFiles = require("../util/grabFiles");
+const grabFiles = require("../util/grab.files");
 const path = require("path");
 const { Routes } = require("discord.js");
 

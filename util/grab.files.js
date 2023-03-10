@@ -1,5 +1,5 @@
 // ------------find path of files and read them ------------
-const routeDir = require("../util/path.route");
+const routeDir = require("./path.route");
 const path = require("path");
 const fs = require("fs");
 module.exports = (dirName) => {

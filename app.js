@@ -1,4 +1,5 @@
 const { loadCommands } = require("./controllers/command.handler");
+
 const { loadEvents } = require("./controllers/event.handler");
 const { Client, Collection, GatewayIntentBits, REST } = require("discord.js");
 require("dotenv").config();
@@ -11,6 +12,8 @@ function runBot() {
     const rest = new REST().setToken(process.env.DISCORD_TOKEN);
     //load commands
     loadCommands(client, rest);
+    // load delete commands
+    // deleteCommand(rest);
     //load events
     loadEvents(client);
 
