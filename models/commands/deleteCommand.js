@@ -16,7 +16,14 @@ const data = new SlashCommandBuilder()
 async function execute(interaction) {
     let errText;
     const commandId = interaction.options.getString("command_id");
-    deleteCommand(commandId);
+    try {
+        deleteCommand(commandId, interaction);
+        interaction.reply("success delete");
+    } catch (error) {
+        console.log(`error is ${err}`);
+        interaction.reply(`the error happenin ${err}`);
+    }
+
     //todo handel
 }
 module.exports = { data, execute };
