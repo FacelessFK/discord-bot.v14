@@ -23,7 +23,5 @@ async function execute(interaction) {
         console.log(`error is ${err}`);
         interaction.reply(`the error happenin ${err}`);
     }
-
-    //todo handel
 }
 module.exports = { data, execute };

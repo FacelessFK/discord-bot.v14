@@ -7,6 +7,8 @@ module.exports = {
     async execute(interaction) {
         if (!interaction.isChatInputCommand()) return;
 
+        console.log(interaction);
+
         const command = interaction.client.commands.get(
             interaction.commandName
         );
@@ -25,14 +27,14 @@ module.exports = {
             if (interaction.replied || interaction.deferred) {
                 await interaction.followUp({
                     content: "There was an error while executing this command!",
-                    ephemeral: true,
+                    ephemeral: true
                 });
             } else {
                 await interaction.reply({
                     content: "There was an error while executing this command!",
-                    ephemeral: true,
+                    ephemeral: true
                 });
             }
         }
-    },
+    }
 };
